@@ -1,7 +1,7 @@
 # Instructions for use
 The first step is to clone the repository located at https://github.com/Paloma-PD/Programacion-2/tree/main/Challenge_1 using the following commands:
 
-    git clone https://github.com/Paloma-PD/Programacion-2/Challenge_1.git
+    git clone https://github.com/Paloma-PD/Challenges-Progra2.git
     cd Challenge_1
 
 Once the repository is cloned, you will notice that the folder has a _txt_ file called _requirements_. This file contains the minimum libraries that the environment where the code will run must have. To install the libraries, you can do so using the command
