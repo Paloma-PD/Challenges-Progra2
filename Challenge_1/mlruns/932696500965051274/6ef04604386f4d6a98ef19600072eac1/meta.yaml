@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/palom/OneDrive/Dokumen/CUCEA/2DO_SEM/Programacion-2/Challenge_1/mlruns/932696500965051274/6ef04604386f4d6a98ef19600072eac1/artifacts
+end_time: 1742494897230
+entry_point_name: ''
+experiment_id: '932696500965051274'
+lifecycle_stage: active
+run_id: 6ef04604386f4d6a98ef19600072eac1
+run_name: chill-stag-145
+run_uuid: 6ef04604386f4d6a98ef19600072eac1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742494886555
+status: 3
+tags: []
+user_id: palom

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/palom/OneDrive/Dokumen/CUCEA/2DO_SEM/Programacion-2/Challenge_1/mlruns/932696500965051274/4a3a8761969a4ba094888cfe0bf2e502/artifacts
+end_time: 1742494336464
+entry_point_name: ''
+experiment_id: '932696500965051274'
+lifecycle_stage: active
+run_id: 4a3a8761969a4ba094888cfe0bf2e502
+run_name: silent-owl-523
+run_uuid: 4a3a8761969a4ba094888cfe0bf2e502
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742494327460
+status: 3
+tags: []
+user_id: palom

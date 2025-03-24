@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/palom/OneDrive/Dokumen/CUCEA/2DO_SEM/Programacion-2/Challenge_1/mlruns/932696500965051274/0599f1421295496bb2336a0bb9ca5b1b/artifacts
+end_time: 1742496268824
+entry_point_name: ''
+experiment_id: '932696500965051274'
+lifecycle_stage: active
+run_id: 0599f1421295496bb2336a0bb9ca5b1b
+run_name: glamorous-sloth-596
+run_uuid: 0599f1421295496bb2336a0bb9ca5b1b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742496268689
+status: 4
+tags: []
+user_id: palom

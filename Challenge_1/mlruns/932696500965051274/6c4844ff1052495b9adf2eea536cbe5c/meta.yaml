@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/palom/OneDrive/Dokumen/CUCEA/2DO_SEM/Programacion-2/Challenge_1/mlruns/932696500965051274/6c4844ff1052495b9adf2eea536cbe5c/artifacts
+end_time: 1742494395445
+entry_point_name: ''
+experiment_id: '932696500965051274'
+lifecycle_stage: active
+run_id: 6c4844ff1052495b9adf2eea536cbe5c
+run_name: sedate-finch-762
+run_uuid: 6c4844ff1052495b9adf2eea536cbe5c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742494386965
+status: 3
+tags: []
+user_id: palom
