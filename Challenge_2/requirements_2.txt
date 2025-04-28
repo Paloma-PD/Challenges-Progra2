@@ -6,3 +6,6 @@ seaborn
 mlflow
 os
 pathlib
+pycaret
+pyLDAvis==3.2.2
+spacy
