@@ -6,3 +6,92 @@
 'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
 2025-04-28 14:46:15,362:WARNING:
 'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-04-28 15:25:04,005:INFO:PyCaret ClassificationExperiment
+2025-04-28 15:25:04,005:INFO:Logging name: clf-default-name
+2025-04-28 15:25:04,006:INFO:ML Usecase: MLUsecase.CLASSIFICATION
+2025-04-28 15:25:04,007:INFO:version 3.3.2
+2025-04-28 15:25:04,007:INFO:Initializing setup()
+2025-04-28 15:25:04,007:INFO:self.USI: 235b
+2025-04-28 15:25:04,007:INFO:self._variable_keys: {'pipeline', 'y', 'fold_generator', 'X_test', 'seed', '_available_plots', 'exp_id', 'idx', 'y_test', 'is_multiclass', '_ml_usecase', 'USI', 'logging_param', 'data', 'n_jobs_param', 'X_train', 'exp_name_log', 'X', 'gpu_param', 'fold_groups_param', 'memory', 'fix_imbalance', 'gpu_n_jobs_param', 'log_plots_param', 'y_train', 'html_param', 'target_param', 'fold_shuffle_param'}
+2025-04-28 15:25:04,007:INFO:Checking environment
+2025-04-28 15:25:04,008:INFO:python_version: 3.10.16
+2025-04-28 15:25:04,008:INFO:python_build: ('main', 'Dec 11 2024 16:19:12')
+2025-04-28 15:25:04,008:INFO:machine: AMD64
+2025-04-28 15:25:04,008:INFO:platform: Windows-10-10.0.26100-SP0
+2025-04-28 15:25:04,015:INFO:Memory: svmem(total=8192585728, available=1056428032, percent=87.1, used=7136157696, free=1056428032)
+2025-04-28 15:25:04,015:INFO:Physical Core: 8
+2025-04-28 15:25:04,016:INFO:Logical Core: 8
+2025-04-28 15:25:04,016:INFO:Checking libraries
+2025-04-28 15:25:04,016:INFO:System:
+2025-04-28 15:25:04,016:INFO:    python: 3.10.16 | packaged by Anaconda, Inc. | (main, Dec 11 2024, 16:19:12) [MSC v.1929 64 bit (AMD64)]
+2025-04-28 15:25:04,016:INFO:executable: c:\Users\palom\anaconda3\envs\ProgramacionII\python.exe
+2025-04-28 15:25:04,016:INFO:   machine: Windows-10-10.0.26100-SP0
+2025-04-28 15:25:04,016:INFO:PyCaret required dependencies:
+2025-04-28 15:25:04,188:INFO:                 pip: 25.0
+2025-04-28 15:25:04,188:INFO:          setuptools: 72.1.0
+2025-04-28 15:25:04,188:INFO:             pycaret: 3.3.2
+2025-04-28 15:25:04,188:INFO:             IPython: 8.32.0
+2025-04-28 15:25:04,188:INFO:          ipywidgets: 8.1.6
+2025-04-28 15:25:04,188:INFO:                tqdm: 4.67.1
+2025-04-28 15:25:04,188:INFO:               numpy: 1.26.4
+2025-04-28 15:25:04,188:INFO:              pandas: 2.1.4
+2025-04-28 15:25:04,188:INFO:              jinja2: 3.1.6
+2025-04-28 15:25:04,188:INFO:               scipy: 1.11.4
+2025-04-28 15:25:04,188:INFO:              joblib: 1.4.2
+2025-04-28 15:25:04,188:INFO:             sklearn: 1.4.2
+2025-04-28 15:25:04,188:INFO:                pyod: 2.0.4
+2025-04-28 15:25:04,188:INFO:            imblearn: 0.13.0
+2025-04-28 15:25:04,188:INFO:   category_encoders: 2.7.0
+2025-04-28 15:25:04,189:INFO:            lightgbm: 4.6.0
+2025-04-28 15:25:04,189:INFO:               numba: 0.61.2
+2025-04-28 15:25:04,189:INFO:            requests: 2.32.3
+2025-04-28 15:25:04,189:INFO:          matplotlib: 3.7.5
+2025-04-28 15:25:04,189:INFO:          scikitplot: 0.3.7
+2025-04-28 15:25:04,189:INFO:         yellowbrick: 1.5
+2025-04-28 15:25:04,189:INFO:              plotly: 5.24.1
+2025-04-28 15:25:04,189:INFO:    plotly-resampler: Not installed
+2025-04-28 15:25:04,189:INFO:             kaleido: 0.2.1
+2025-04-28 15:25:04,189:INFO:           schemdraw: 0.15
+2025-04-28 15:25:04,189:INFO:         statsmodels: 0.14.4
+2025-04-28 15:25:04,189:INFO:              sktime: 0.26.0
+2025-04-28 15:25:04,189:INFO:               tbats: 1.1.3
+2025-04-28 15:25:04,189:INFO:            pmdarima: 2.0.4
+2025-04-28 15:25:04,189:INFO:              psutil: 6.1.1
+2025-04-28 15:25:04,189:INFO:          markupsafe: 3.0.2
+2025-04-28 15:25:04,189:INFO:             pickle5: Not installed
+2025-04-28 15:25:04,189:INFO:         cloudpickle: 3.0.0
+2025-04-28 15:25:04,189:INFO:         deprecation: 2.1.0
+2025-04-28 15:25:04,189:INFO:              xxhash: 3.5.0
+2025-04-28 15:25:04,189:INFO:           wurlitzer: Not installed
+2025-04-28 15:25:04,189:INFO:PyCaret optional dependencies:
+2025-04-28 15:25:04,209:INFO:                shap: Not installed
+2025-04-28 15:25:04,209:INFO:           interpret: Not installed
+2025-04-28 15:25:04,209:INFO:                umap: Not installed
+2025-04-28 15:25:04,209:INFO:     ydata_profiling: Not installed
+2025-04-28 15:25:04,209:INFO:  explainerdashboard: Not installed
+2025-04-28 15:25:04,209:INFO:             autoviz: Not installed
+2025-04-28 15:25:04,210:INFO:           fairlearn: Not installed
+2025-04-28 15:25:04,210:INFO:          deepchecks: Not installed
+2025-04-28 15:25:04,210:INFO:             xgboost: Not installed
+2025-04-28 15:25:04,210:INFO:            catboost: Not installed
+2025-04-28 15:25:04,210:INFO:              kmodes: Not installed
+2025-04-28 15:25:04,210:INFO:             mlxtend: Not installed
+2025-04-28 15:25:04,210:INFO:       statsforecast: Not installed
+2025-04-28 15:25:04,210:INFO:        tune_sklearn: Not installed
+2025-04-28 15:25:04,210:INFO:                 ray: Not installed
+2025-04-28 15:25:04,210:INFO:            hyperopt: Not installed
+2025-04-28 15:25:04,210:INFO:              optuna: Not installed
+2025-04-28 15:25:04,210:INFO:               skopt: Not installed
+2025-04-28 15:25:04,210:INFO:              mlflow: 2.18.0
+2025-04-28 15:25:04,210:INFO:              gradio: Not installed
+2025-04-28 15:25:04,210:INFO:             fastapi: Not installed
+2025-04-28 15:25:04,210:INFO:             uvicorn: Not installed
+2025-04-28 15:25:04,210:INFO:              m2cgen: Not installed
+2025-04-28 15:25:04,210:INFO:           evidently: Not installed
+2025-04-28 15:25:04,210:INFO:               fugue: Not installed
+2025-04-28 15:25:04,210:INFO:           streamlit: Not installed
+2025-04-28 15:25:04,210:INFO:             prophet: Not installed
+2025-04-28 15:25:04,210:INFO:None
+2025-04-28 15:25:04,211:INFO:Set up data.
+2025-04-28 15:25:04,237:INFO:Set up folding strategy.
+2025-04-28 15:25:04,237:INFO:Set up train/test split.
