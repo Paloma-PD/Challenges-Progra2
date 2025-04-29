@@ -55,7 +55,7 @@ def main():
             mlflow.log_artifact(os.path.join(plots_path,f"confusion_matrix-{nombre_modelo}.png"))
             
             # Record the model
-            mlflow.sklearn.log_model(row['Model'], f"{nombre_modelo}_model")
+            mlflow.sklearn.log_model(nombre_modelo, f"{nombre_modelo}_model")
 
 # Main Execution Block: Code that runs when the script is executed directly
 if __name__ == '__main__':

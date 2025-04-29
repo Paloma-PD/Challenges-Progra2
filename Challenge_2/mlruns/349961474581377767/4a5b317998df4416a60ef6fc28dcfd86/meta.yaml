@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/palom/OneDrive/Dokumen/CUCEA/2DO_SEM/Challenges-Progra2/Challenge_2/mlruns/349961474581377767/4a5b317998df4416a60ef6fc28dcfd86/artifacts
+end_time: 1745960325123
+entry_point_name: ''
+experiment_id: '349961474581377767'
+lifecycle_stage: active
+run_id: 4a5b317998df4416a60ef6fc28dcfd86
+run_name: Naive Bayes
+run_uuid: 4a5b317998df4416a60ef6fc28dcfd86
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745960324869
+status: 4
+tags: []
+user_id: palom

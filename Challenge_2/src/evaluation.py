@@ -81,7 +81,7 @@ def model_evaluate(X_train, y_train, X_test, y_test):
         plt.title('Curva ROC')
         plt.legend(loc='lower right')
         plt.grid()
-        plt.savefig(os.path.join(plots_path, f"roc_curve-{nombre}.png")
+        plt.savefig(os.path.join(plots_path, f"roc_curve-{nombre}.png"))
         plt.close()
 
         # Calcular y mostrar la matriz de confusión
@@ -91,7 +91,7 @@ def model_evaluate(X_train, y_train, X_test, y_test):
         plt.xlabel('Predicción')
         plt.ylabel('Real')
         plt.title(f'Matriz de Confusión - {nombre}')
-        plt.savefig(os.path.join(plots_path, f"confusion_matrix-{nombre}.png")
+        plt.savefig(os.path.join(plots_path, f"confusion_matrix-{nombre}.png"))
         plt.close()
         
         # Imprimir resultados
