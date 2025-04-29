@@ -19,7 +19,12 @@ def main():
     df = load_data_frame(path=df_path)
     # Preprocessing part
     df_text = preprocessing_data(df=df, scaling=True)
-
+    # NLP implmentation
+    nlp_process(df_text)
+    print('NLP implemented')
+    # Sentimental analysis
+    sentimental_analysis(df_text)
+    print('NSentimental analysis implemented')
     # Model training
     X_train, X_test, y_train, y_test = model_training(df_text)
     
