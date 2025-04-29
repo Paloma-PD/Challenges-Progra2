@@ -1,9 +1,21 @@
 import os
+import pandas as pd
 from pathlib import Path
 from sklearn.metrics import accuracy_score, classification_report, roc_curve, auc, confusion_matrix, precision_score, recall_score, f1_score
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import LabelBinarizer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import LabelBinarizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report, roc_curve, auc, confusion_matrix, precision_score, recall_score, f1_score
+from sklearn.feature_extraction.text import CountVectorizer
+from collections import Counter
 
 def model_evaluate(modelos, X_train, y_train, X_test, y_test, y_pred, df_modelos):
      # Lista de modelos
