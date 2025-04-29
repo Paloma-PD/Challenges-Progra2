@@ -17,7 +17,7 @@ from sklearn.metrics import accuracy_score, classification_report, roc_curve, au
 from sklearn.feature_extraction.text import CountVectorizer
 from collections import Counter
 
-def model_evaluate(modelos, X_train, y_train, X_test, y_test):
+def model_evaluate(X_train, y_train, X_test, y_test):
      # Lista de modelos
     modelos = [
         ('Naive Bayes', MultinomialNB()),
@@ -50,7 +50,8 @@ def model_evaluate(modelos, X_train, y_train, X_test, y_test):
                 'Accuracy': accuracy,
                 'Precision': precision,
                 'Recall': recall,
-                'F1-score': f1
+                'F1-score': f1,
+                'Report': report
             })
 
         # Mostrar resultados
@@ -103,4 +104,4 @@ def model_evaluate(modelos, X_train, y_train, X_test, y_test):
         print(f'Reporte de Clasificación - {nombre}:')
         print(report)
  
-    return df_resultados
+    return df_resultados, plots_path
