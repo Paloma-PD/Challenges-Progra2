@@ -22,35 +22,4 @@ def model_training(df_text):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
     print("\n")
     print("Data splitting")
-
-        # Lista de modelos
-    modelos = [
-        ('Naive Bayes', MultinomialNB()),
-        ('Logistic Regression', LogisticRegression(max_iter=1000)),
-        ('Random Forest', RandomForestClassifier(random_state=5)),
-        ('SVM', SVC(probability=True)),
-        ('Decision Tree', DecisionTreeClassifier())
-    ]
-    # Evaluar y guardar resultados
-    resultados = []
-
-    for nombre, modelo in modelos:
-        pipeline = Pipeline([
-            ('tfidf', TfidfVectorizer()),
-            ('clf', modelo)
-        ])
-        
-        pipeline.fit(X_train, y_train)
-        y_pred = pipeline.predict(X_test)
-        
-        resultados.append({
-            'Modelo': nombre,
-            'Accuracy': accuracy_score(y_test, y_pred),
-            'Precision': precision_score(y_test, y_pred, pos_label='pos'),
-            'Recall': recall_score(y_test, y_pred, pos_label='pos'),
-            'F1-score': f1_score(y_test, y_pred, pos_label='pos')
-        })
-    # Convertir en dataframe
-    df_modelos = pd.DataFrame(resultados)
-    
-    return X_train, X_test, y_train, y_test, df_modelos, modelos
+    return X_train, X_test, y_train, y_test
