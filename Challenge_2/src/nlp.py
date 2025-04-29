@@ -81,7 +81,7 @@ def nlp_process(df_text):
         plt.imshow(WordCloud(background_color='white').fit_words(dict(lda_model.show_topic(i, 30))))
         plt.axis('off')
         plt.title(f'Topic {i}')
-        plt.savefig(os.path.join(plots_path,f'word_clog_topic{i}.png'))
+        plt.savefig(os.path.join(plots_path,f'word_cloud_topic{i}.png'))
         plt.close()
 
 # Definimos la función para trabajar NLP

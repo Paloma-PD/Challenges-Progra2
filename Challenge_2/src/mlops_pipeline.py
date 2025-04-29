@@ -17,8 +17,9 @@ def main():
     
     # Load the data
     df = load_data_frame(path=df_path)
+    print("\n")
     # Preprocessing part
-    df_text = preprocessing_data(df=df, scaling=True)
+    df_text = preprocessing_data(df=df)
     # NLP implmentation
     nlp_process(df_text)
     print('NLP implemented')

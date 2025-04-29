@@ -8,6 +8,9 @@ from nltk.corpus import stopwords
 from nltk.util import ngrams
 from typing import Optional
 import spacy
+from spacy.lang.en.examples import sentences # Da ejemplos de frases en español para pruebas.
+from spacy.lang.en.stop_words import STOP_WORDS # Stop words en inglés
+from nltk.corpus import stopwords # Lista de stopwords pero de la librería NLTK (más general).
 from collections import Counter
 import matplotlib.pyplot as plt
 
@@ -61,11 +64,10 @@ def preprocessing_data(df, columna='pros'):
     generar_ngramas(df_text,'pros_lem', 2, 5,10)
 
     return df_text
-
+nlp = spacy.load("en_core_web_sm")
+nltk.download('stopwords')
 # Definimos una función para aplicar lemmatization
 def lemmatizatizar(text):
-    nlp = spacy.load("en_core_web_sm")
-    nltk.download('stopwords')
 
     lemmatizer_text = nlp(text)
     lemmatizer_text = [word.lemma_ for word in lemmatizer_text]
