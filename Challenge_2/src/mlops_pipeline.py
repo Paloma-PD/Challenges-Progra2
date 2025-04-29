@@ -13,7 +13,7 @@ from prepocessing import load_data_frame, preprocessing_data
 def main():
     # Defines the directory of our file
     df_path = Path(__file__).parent.resolve() # Convierte la ruta relativa en absoluta, tenía conflicto con las diagonales
-    df_path = df_path.parent / 'data/breast-cancer-wisconsin.data.csv'
+    df_path = df_path.parent / 'data/glassdoor_reviews.csv'
     
     # Load the data
     df = load_data_frame(path=df_path)
