@@ -18,4 +18,5 @@ Once executed and the libraries have been installed, or if applicable, it has be
 
 Finally, it is mentioned that the code is added to the notebooks folder in an .ipynb file. This file serves as support for testing the models and/or exploring the data. For more details, see the documentation PDF.
 ******
-*** It is important to mention that we are working with 250 records of the total, in order to make the execution of the code faster, you can always comment out line 47 of the _preprocessing_ module.
+******
+ It is important to mention that we are working with 250 records of the total, in order to make the execution of the code faster, you can always comment out line 47 of the _preprocessing_ module to work with all the data.
