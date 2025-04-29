@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/palom/OneDrive/Dokumen/CUCEA/2DO_SEM/Challenges-Progra2/Challenge_2/mlruns/349961474581377767/17f959e81375449999a992a10d395215/artifacts
+end_time: 1745961370500
+entry_point_name: ''
+experiment_id: '349961474581377767'
+lifecycle_stage: active
+run_id: 17f959e81375449999a992a10d395215
+run_name: Random Forest
+run_uuid: 17f959e81375449999a992a10d395215
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745961364021
+status: 3
+tags: []
+user_id: palom

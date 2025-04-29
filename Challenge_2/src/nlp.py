@@ -18,7 +18,7 @@ if not os.path.exists(plots_path):
 # Definimos la función para trabajar NLP
 def nlp_process(df_text):
     ## MODELO LDA
-    documents = df_text['pros_lem'].dropna().astype(str).tolist()
+    documents = df_text['lem'].dropna().astype(str).tolist()
     # Como ya no hay que quitar stopwords, simplemente tokenizamos (split)
     texts = [doc.split() for doc in documents]
     # Crear diccionario

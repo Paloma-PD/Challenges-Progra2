@@ -25,7 +25,7 @@ def main():
     print('NLP implemented')
     # Sentimental analysis
     sentimental_analysis(df_text)
-    print('NSentimental analysis implemented')
+    print('Sentimental analysis implemented')
     # Model training
     X_train, X_test, y_train, y_test = model_training(df_text)
     

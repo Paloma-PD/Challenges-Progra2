@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 
 def model_training(df_text):
     # Definimos las variables a trabajar en el modelo
-    X = df_text['pros_lem']  # columna de texto preprocesado
+    X = df_text['lem']  # columna de texto preprocesado
     y = df_text['Flag']      # variable objetivo
     print("\n")
     print("Variables defined")

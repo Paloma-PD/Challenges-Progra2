@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/palom/OneDrive/Dokumen/CUCEA/2DO_SEM/Challenges-Progra2/Challenge_2/mlruns/349961474581377767/c824139174c149c8b12180d0e008858f/artifacts
+end_time: 1745961386246
+entry_point_name: ''
+experiment_id: '349961474581377767'
+lifecycle_stage: active
+run_id: c824139174c149c8b12180d0e008858f
+run_name: Decision Tree
+run_uuid: c824139174c149c8b12180d0e008858f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745961376152
+status: 3
+tags: []
+user_id: palom

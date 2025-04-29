@@ -1,0 +1,13 @@
+artifact_path: Naive Bayes_model
+flavors:
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.2.2
+mlflow_version: 2.22.0
+model_size_bytes: 26
+model_uuid: dea89a4447b14682a6ef49398da87ab0
+prompts: null
+run_id: f517a5b70f7d40d196c0b87e88048eff
+utc_time_created: '2025-04-29 21:15:47.515695'

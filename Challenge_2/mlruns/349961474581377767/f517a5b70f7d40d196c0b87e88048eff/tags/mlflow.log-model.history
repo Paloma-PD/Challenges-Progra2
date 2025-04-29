@@ -1,0 +1,1 @@
+[{"run_id": "f517a5b70f7d40d196c0b87e88048eff", "artifact_path": "Naive Bayes_model", "utc_time_created": "2025-04-29 21:15:47.515695", "model_uuid": "dea89a4447b14682a6ef49398da87ab0", "flavors": {"sklearn": {"pickled_model": "model.pkl", "sklearn_version": "1.2.2", "serialization_format": "cloudpickle", "code": null}}}]

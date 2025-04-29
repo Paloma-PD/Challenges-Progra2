@@ -49,19 +49,19 @@ def preprocessing_data(df, columna='pros'):
 
     # Se aplica la función limpiar a la columna -pros-
     # ==============================================================================
-    df_text['pros'] = df_text['pros'].apply(lambda col: limpiar(col))
+    df_text[columna] = df_text[columna].apply(lambda col: limpiar(col))
 
     # Creamos una lista de stop words
     stop_words = list(stopwords.words('english'))
 
     # Exclude stopwords with Python's list comprehension and pandas.DataFrame.apply.
-    df_text['pros_sw'] = df_text['pros'].apply(lambda x: ' '.join([word for word in x.split() if word not in (stop_words)]))
+    df_text['sw'] = df_text[columna].apply(lambda x: ' '.join([word for word in x.split() if word not in (stop_words)]))
 
     # Creamos una columna con las lematizaciones para las palabras sin stop words
-    df_text['pros_lem'] = df_text['pros_sw'].apply(lambda x: lemmatizatizar(x))
+    df_text['lem'] = df_text['sw'].apply(lambda x: lemmatizatizar(x))
 
     # Creamos los n-gramas y los graficamos
-    generar_ngramas(df_text,'pros_lem', 2, 5,10)
+    generar_ngramas(df_text,'lem', 2, 5,10)
 
     return df_text
 nlp = spacy.load("en_core_web_sm")
