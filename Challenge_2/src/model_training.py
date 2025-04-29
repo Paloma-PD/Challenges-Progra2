@@ -53,4 +53,4 @@ def model_training(df_text):
     # Convertir en dataframe
     df_modelos = pd.DataFrame(resultados)
     
-    return X_train, X_test, y_train, y_test, df_modelos
+    return X_train, X_test, y_train, y_test, df_modelos, modelos
