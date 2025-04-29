@@ -2,14 +2,21 @@ from pathlib import Path
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 import gensim
 from gensim import corpora
 from gensim.models import LdaModel
 from wordcloud import WordCloud
+import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
+plots_path = Path(__file__).parent.resolve() # Convierte la ruta relativa en absoluta, tenía conflicto con las diagonales
+plots_path = plots_path.parent / 'plots'
+if not os.path.exists(plots_path):
+    # If it doesn't exist, it will create it
+    os.makedirs(plots_path)
 # Definimos la función para trabajar NLP
 def nlp_process(df_text):
-
     ## MODELO LDA
     documents = df_text['pros_lem'].dropna().astype(str).tolist()
     # Como ya no hay que quitar stopwords, simplemente tokenizamos (split)
@@ -69,11 +76,6 @@ def nlp_process(df_text):
    
     # WORDS CLOUDS
     # Para cada topic, hacer un WordCloud
-    plots_path = Path(__file__).parent.resolve() # Convierte la ruta relativa en absoluta, tenía conflicto con las diagonales
-    plots_path = plots_path.parent / 'plots'
-    if not os.path.exists(plots_path):
-        # If it doesn't exist, it will create it
-        os.makedirs(plots_path)
     for i in range(lda_model.num_topics):
         plt.figure(figsize=(8, 6))
         plt.imshow(WordCloud(background_color='white').fit_words(dict(lda_model.show_topic(i, 30))))
@@ -81,3 +83,33 @@ def nlp_process(df_text):
         plt.title(f'Topic {i}')
         plt.savefig(os.path.join(plots_path,f'word_clog_topic{i}.png'))
         plt.close()
+
+# Definimos la función para trabajar NLP
+def sentimental_analysis(df_text, columna='pros'):
+    nltk.download('vader_lexicon')
+    sid = SentimentIntensityAnalyzer()
+    sid.polarity_scores(df_text.loc[0][columna]) # Aplica análisis de sentimientos a la primer columna
+    # Crea una nueva columna llamada 'scores', cada fila de 'scores' es el diccionario de sentimientos generado para el texto de 'pros'.
+    df_text['scores'] = df_text[columna].apply(lambda x: sid.polarity_scores(x))
+    # Extrae únicamente el valor de 'compound' de cada diccionario
+    df_text['compound']  = df_text['scores'].apply(lambda score_dict: score_dict['compound'])
+    #Columna con el resultado de flag
+    df_text['Flag'] = df_text['compound'].apply(lambda c: 'pos' if c >=0 else 'neg')
+    
+    # Plot de positivos y negativos
+    plt.figure(figsize=(20,10))
+    sns.set(font_scale = 2)
+    gen_cnt = df_text['Flag'].value_counts().sort_values(ascending=False)
+    order=gen_cnt.index
+    ax = sns.countplot(x='Flag', data=df_text, order= ('pos', 'neg'))
+    plt.xticks(rotation = 360)
+    plt.yticks()
+    plt.ylabel('Frequency')
+    plt.title('Sentiment Analysis')
+    # annotate
+    ax.bar_label(ax.containers[0], label_type="edge")
+    # pad the spacing between the number and the edge of the figure
+    ax.margins(y=0.1)
+    # Guardamos el plot
+    plt.savefig(os.path.join(plots_path,'Sentiment_analysis.png'))
+    plt.close()
