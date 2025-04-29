@@ -17,7 +17,7 @@ from sklearn.metrics import accuracy_score, classification_report, roc_curve, au
 from sklearn.feature_extraction.text import CountVectorizer
 from collections import Counter
 
-def model_evaluate(modelos, X_train, y_train, X_test, y_test, y_pred, df_modelos):
+def model_evaluate(modelos, X_train, y_train, X_test, y_test):
      # Lista de modelos
     modelos = [
         ('Naive Bayes', MultinomialNB()),
@@ -36,68 +36,60 @@ def model_evaluate(modelos, X_train, y_train, X_test, y_test, y_pred, df_modelos
         ])
         
         pipeline.fit(X_train, y_train)
-        y_pred = pipeline.predict(X_test)
         
-        resultados.append({
-            'Modelo': nombre,
-            'Accuracy': accuracy_score(y_test, y_pred),
-            'Precision': precision_score(y_test, y_pred, pos_label='pos'),
-            'Recall': recall_score(y_test, y_pred, pos_label='pos'),
-            'F1-score': f1_score(y_test, y_pred, pos_label='pos'),
-            'y_pred': y_pred
-        })
-    # Convertir en dataframe
-    df_modelos = pd.DataFrame(resultados)
-    for nombre_modelo, modelo in modelos:
+        # Evaluar el modelo
+        y_pred = pipeline.predict(X_test)
+        accuracy = accuracy_score(y_test, y_pred)
+        precision = precision_score(y_test, y_pred, pos_label='pos')
+        recall = recall_score(y_test, y_pred, pos_label='pos')  # Sensibilidad
+        f1 = f1_score(y_test, y_pred, pos_label='pos')
+        report = classification_report(y_test, y_pred)
+
         # Calcular la curva ROC
+        y_probs = pipeline.predict_proba(X_test)[:, 1]  # Probabilidades de la clase positiva (Maligno)
+        
         # Convertir etiquetas de texto a binario
         lb = LabelBinarizer()
         y_test_bin = lb.fit_transform(y_test).ravel()  # .ravel() para convertir a vector 1D
         fpr, tpr, _ = roc_curve(y_test_bin, y_probs)
         roc_auc = auc(fpr, tpr)
 
+        plots_path = Path(__file__).parent.resolve() # Convierte la ruta relativa en absoluta, tenía conflicto con las diagonales
+        plots_path = plots_path.parent / 'plots'
+        if not os.path.exists(plots_path):
+            # If it doesn't exist, it will create it
+            os.makedirs(plots_path)
+
         # Graficar la curva ROC
         plt.figure(figsize=(8, 6))
-        plt.plot(fpr, tpr, color='blue', lw=2, label=f'ROC curve - {nombre_modelo} (area = {roc_auc:.2f})')
+        plt.plot(fpr, tpr, color='blue', lw=2, label=f'ROC curve - {nombre} (area = {roc_auc:.2f})')
         plt.plot([0, 1], [0, 1], color='grey', linestyle='--')  # Línea de referencia
         plt.xlabel('Tasa de Falsos Positivos (FPR)')
         plt.ylabel('Tasa de Verdaderos Positivos (TPR)')
         plt.title('Curva ROC')
         plt.legend(loc='lower right')
         plt.grid()
-        plt.savefig(f"roc_curve-{nombre_modelo}.png")
+        plt.savefig(f"roc_curve-{nombre}.png")
         plt.close()
 
-    plots_path = Path(__file__).parent.resolve() # Convierte la ruta relativa en absoluta, tenía conflicto con las diagonales
-    plots_path = plots_path.parent / 'plots'
-    if not os.path.exists(plots_path):
-        # If it doesn't exist, it will create it
-        os.makedirs(plots_path)
-
-    # Graph the confusion matrix
-    conf_matrix = confusion_matrix(y_test, y_pred)
-    plt.figure(figsize=(6, 5))
-    sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=['Benigno', 'Maligno'], yticklabels=['Benigno', 'Maligno'])
-    plt.xlabel('Predicción')
-    plt.ylabel('Real')
-    plt.title('Matriz de Confusión')
-    plt.savefig(os.path.join(plots_path,'confusion_matrix.png'))
-    plt.close()
-    
-    # ROC score
-    y_probs = model.predict_proba(X_test)[:, 1]  # Probabilidades de la clase positiva (Maligno)
-    fpr, tpr, _ = roc_curve(y_test, y_probs)
-    roc_auc = auc(fpr, tpr)
-
-    # Graph the ROC curve
-    plt.figure(figsize=(8, 6))
-    plt.plot(fpr, tpr, color='blue', lw=2, label=f'ROC curve (area = {roc_auc:.2f})')
-    plt.plot([0, 1], [0, 1], color='grey', linestyle='--')  # Línea de referencia
-    plt.xlabel('Tasa de Falsos Positivos (FPR)')
-    plt.ylabel('Tasa de Verdaderos Positivos (TPR)')
-    plt.title('Curva ROC')
-    plt.legend(loc='lower right')
-    plt.grid()
-    plt.savefig(os.path.join(plots_path, 'ROC_curve.png'))
-    plt.close()
+        # Calcular y mostrar la matriz de confusión
+        conf_matrix = confusion_matrix(y_test, y_pred)
+        plt.figure(figsize=(6, 5))
+        sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=['neg', 'pos'], yticklabels=['neg', 'pos'])
+        plt.xlabel('Predicción')
+        plt.ylabel('Real')
+        plt.title(f'Matriz de Confusión - {nombre}')
+        plt.savefig(f"confusion_matrix-{nombre}.png")
+        plt.close()
+        
+        # Imprimir resultados
+        print('MÉTRICAS')
+        print(nombre)
+        print(f'Accuracy: {accuracy:.2f}')
+        print(f'Precision: {precision:.2f}')
+        print(f'Recall: {recall:.2f}')
+        print(f'F1-score: {f1:.2f}')
+        print(f'Reporte de Clasificación - {nombre}:')
+        print(report)
+ 
     return accuracy, report, plots_path
