@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/palom/OneDrive/Dokumen/CUCEA/2DO_SEM/Challenges-Progra2/Challenge_2/notebooks/mlruns/625476680595676533/5a063a0c1cc341bdb4f0becce64d5031/artifacts
+end_time: 1745951239650
+entry_point_name: ''
+experiment_id: '625476680595676533'
+lifecycle_stage: active
+run_id: 5a063a0c1cc341bdb4f0becce64d5031
+run_name: crawling-pug-754
+run_uuid: 5a063a0c1cc341bdb4f0becce64d5031
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745951230786
+status: 3
+tags: []
+user_id: palom

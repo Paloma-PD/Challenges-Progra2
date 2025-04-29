@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/palom/OneDrive/Dokumen/CUCEA/2DO_SEM/Challenges-Progra2/Challenge_2/notebooks/mlruns/625476680595676533/7c0787221d2b4d4c88201c9759d8625d/artifacts
+end_time: 1745951391726
+entry_point_name: ''
+experiment_id: '625476680595676533'
+lifecycle_stage: active
+run_id: 7c0787221d2b4d4c88201c9759d8625d
+run_name: SVM
+run_uuid: 7c0787221d2b4d4c88201c9759d8625d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745951381147
+status: 3
+tags: []
+user_id: palom

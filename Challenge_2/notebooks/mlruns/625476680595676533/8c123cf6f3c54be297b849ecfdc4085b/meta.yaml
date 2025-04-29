@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/palom/OneDrive/Dokumen/CUCEA/2DO_SEM/Challenges-Progra2/Challenge_2/notebooks/mlruns/625476680595676533/8c123cf6f3c54be297b849ecfdc4085b/artifacts
+end_time: 1745951415062
+entry_point_name: ''
+experiment_id: '625476680595676533'
+lifecycle_stage: active
+run_id: 8c123cf6f3c54be297b849ecfdc4085b
+run_name: GradientBoosting
+run_uuid: 8c123cf6f3c54be297b849ecfdc4085b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745951402880
+status: 3
+tags: []
+user_id: palom
