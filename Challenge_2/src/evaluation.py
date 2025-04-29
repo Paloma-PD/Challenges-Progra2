@@ -45,6 +45,17 @@ def model_evaluate(modelos, X_train, y_train, X_test, y_test):
         f1 = f1_score(y_test, y_pred, pos_label='pos')
         report = classification_report(y_test, y_pred)
 
+        resultados.append({
+                'Modelo': nombre,
+                'Accuracy': accuracy,
+                'Precision': precision,
+                'Recall': recall,
+                'F1-score': f1
+            })
+
+        # Mostrar resultados
+        df_resultados = pd.DataFrame(resultados)
+
         # Calcular la curva ROC
         y_probs = pipeline.predict_proba(X_test)[:, 1]  # Probabilidades de la clase positiva (Maligno)
         
@@ -92,4 +103,4 @@ def model_evaluate(modelos, X_train, y_train, X_test, y_test):
         print(f'Reporte de Clasificación - {nombre}:')
         print(report)
  
-    return accuracy, report, plots_path
+    return df_resultados
