@@ -3,6 +3,7 @@ The first step is to clone the repository located at https://github.com/Paloma-P
 
     git clone https://github.com/Paloma-PD/Challenges-Progra2.git
     cd Challenge_2
+    Or _git pull origin main_ if you cloned the repository before, maybe for the challenge 1
 
 Once the repository is cloned, you will notice that the folder has a _txt_ file called *_*requirements_2*. This file contains the minimum libraries that the environment where the code will run must have. To install the libraries, you can do so using the command
 
