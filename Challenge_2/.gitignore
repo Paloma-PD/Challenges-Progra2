@@ -1,3 +1,7 @@
 glassdoor_reviews.csv
 logs.log
 notebooks/mlruns/ # Ignorar las pruebas de mlruns del notebook
+**/__pycache__
+**/.DS_Store
+**/mlruns/*
+!**/mlruns/.gitkeep
