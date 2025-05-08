@@ -17,6 +17,8 @@ Once executed and the libraries have been installed, or if applicable, it has be
 4. _evaluation_: This module, based on a list of models, adjusts and makes predictions, and also calculates metrics (accuracy, precision, recall, f1-score) for each model to finally save them in a data frame. ROC accuracy is also calculated to create the ROC curve graph and the confusion matrix graph. Both graphs are saved in the Plots folder.
 5. _mlops_pipeline_: This is the *"main"* script on which the other scripts are concentrated. When it's executed, the data will be loaded, preprocessed, the models will be generated, the metrics will be calculated, and finally, the obtained metrics, report, and graphs will be recorded using the mlflow library.
 
+The code will work on three columns: headline, pros, and cons, with the goal of analyzing the behavior of the comments left. The graphs and calculated metrics will also be named with the column name to facilitate identification for subsequent analysis.
+
 Finally, it is mentioned that the code is added to the notebooks folder in an .ipynb file. This file serves as support for testing the models and/or exploring the data. For more details, see the documentation PDF.
 ******
 ******
