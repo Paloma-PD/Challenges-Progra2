@@ -17,7 +17,7 @@ from sklearn.metrics import accuracy_score, classification_report, roc_curve, au
 from sklearn.feature_extraction.text import CountVectorizer
 from collections import Counter
 
-def model_evaluate(X_train, y_train, X_test, y_test):
+def model_evaluate(X_train, y_train, X_test, y_test, columna):
      # Lista de modelos
     modelos = [
         ('Naive Bayes', MultinomialNB()),
@@ -46,16 +46,17 @@ def model_evaluate(X_train, y_train, X_test, y_test):
         report = classification_report(y_test, y_pred)
 
         resultados.append({
-                'Modelo': nombre,
-                'Accuracy': accuracy,
-                'Precision': precision,
-                'Recall': recall,
-                'F1-score': f1,
-                'Report': report
+                f'Modelo_{columna}': nombre,
+                f'Accuracy_{columna}': accuracy,
+                f'Precision_{columna}': precision,
+                f'Recall_{columna}': recall,
+                f'F1-score_{columna}': f1,
+                f'Report_{columna}': report
             })
 
         # Mostrar resultados
         df_resultados = pd.DataFrame(resultados)
+        #df_resultados.to_excel(f'métricas_{columna}.xlsx', index=False) # Guardar la información en un archivo de excel
 
         # Calcular la curva ROC
         y_probs = pipeline.predict_proba(X_test)[:, 1]  # Probabilidades de la clase positiva (Maligno)
@@ -74,14 +75,14 @@ def model_evaluate(X_train, y_train, X_test, y_test):
 
         # Graficar la curva ROC
         plt.figure(figsize=(8, 6))
-        plt.plot(fpr, tpr, color='blue', lw=2, label=f'ROC curve - {nombre} (area = {roc_auc:.2f})')
+        plt.plot(fpr, tpr, color='blue', lw=2, label=f'ROC curve - {nombre} - {columna} (area = {roc_auc:.2f})')
         plt.plot([0, 1], [0, 1], color='grey', linestyle='--')  # Línea de referencia
         plt.xlabel('Tasa de Falsos Positivos (FPR)')
         plt.ylabel('Tasa de Verdaderos Positivos (TPR)')
-        plt.title('Curva ROC')
+        plt.title(f'Curva ROC - {columna}')
         plt.legend(loc='lower right')
         plt.grid()
-        plt.savefig(os.path.join(plots_path, f"roc_curve-{nombre}.png"))
+        plt.savefig(os.path.join(plots_path, f"roc_curve-{nombre}-{columna}.png"))
         plt.close()
 
         # Calcular y mostrar la matriz de confusión
@@ -90,8 +91,8 @@ def model_evaluate(X_train, y_train, X_test, y_test):
         sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=['neg', 'pos'], yticklabels=['neg', 'pos'])
         plt.xlabel('Predicción')
         plt.ylabel('Real')
-        plt.title(f'Matriz de Confusión - {nombre}')
-        plt.savefig(os.path.join(plots_path, f"confusion_matrix-{nombre}.png"))
+        plt.title(f'Matriz de Confusión - {nombre}- {columna}')
+        plt.savefig(os.path.join(plots_path, f"confusion_matrix-{nombre}-{columna}.png"))
         plt.close()
         
         # Imprimir resultados
@@ -101,7 +102,7 @@ def model_evaluate(X_train, y_train, X_test, y_test):
         print(f'Precision: {precision:.2f}')
         print(f'Recall: {recall:.2f}')
         print(f'F1-score: {f1:.2f}')
-        print(f'Reporte de Clasificación - {nombre}:')
+        print(f'Reporte de Clasificación - {nombre} - {columna}:')
         print(report)
  
     return df_resultados, plots_path

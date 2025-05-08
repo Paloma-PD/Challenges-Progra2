@@ -61,7 +61,7 @@ def preprocessing_data(df, columna='pros'):
     df_text['lem'] = df_text['sw'].apply(lambda x: lemmatizatizar(x))
 
     # Creamos los n-gramas y los graficamos
-    generar_ngramas(df_text,'lem', 2, 5,10)
+    generar_ngramas(df_text,'lem', columna_analisis=columna, n_min=2, n_max=5, top=20)
 
     return df_text
 nlp = spacy.load("en_core_web_sm")
@@ -95,7 +95,7 @@ def limpiar(texto):
     
     return(nuevo_texto)
 
-def generar_ngramas(df, columna, n_min=2, n_max=5, top=20):
+def generar_ngramas(df, columna, columna_analisis='pros', n_min=2, n_max=5, top=20):
     """
         Genera y grafica los n-gramas más frecuentes de una columna de texto de un DataFrame.
 
@@ -141,7 +141,7 @@ def generar_ngramas(df, columna, n_min=2, n_max=5, top=20):
         color = colores[(n - 2) % len(colores)]
         plt.barh(frases[::-1], frecuencias[::-1], color=color)
         plt.xlabel('Frecuencia')
-        plt.title(f'Top {top} {n}-gramas más frecuentes')
+        plt.title(f'Top {top} {n}-gramas más frecuentes - {columna_analisis}')
         plt.tight_layout()
-        plt.savefig(os.path.join(plots_path,f'{n}-gramas.png'))
+        plt.savefig(os.path.join(plots_path,f'{n}-gramas-{columna_analisis}.png'))
         plt.close()

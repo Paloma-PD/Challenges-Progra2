@@ -27,16 +27,16 @@ def main():
         # Preprocessing part
         df_text = preprocessing_data(df=df, columna=columna)
         # NLP implmentation
-        nlp_process(df_text)
+        nlp_process(df_text, columna=columna)
         print('NLP implemented')
         # Sentimental analysis
-        sentimental_analysis(df_text)
+        sentimental_analysis(df_text, columna=columna)
         print('Sentimental analysis implemented')
         # Model training
         X_train, X_test, y_train, y_test = model_training(df_text)
         
         # Model evaluation
-        df_resultados, plots_path = model_evaluate(X_train, y_train, X_test, y_test)
+        df_resultados, plots_path = model_evaluate(X_train, y_train, X_test, y_test, columna)
 
         # Starting an experiment in MLflow
         # Set the base folder to "challenge" (up one level from "src")
@@ -46,22 +46,24 @@ def main():
         mlflow.set_experiment("NLP")
 
         for i, row in df_resultados.iterrows():
-            nombre_modelo = row['Modelo']
+            nombre_modelo = row[f'Modelo_{columna}']
             with mlflow.start_run(run_name=nombre_modelo):
-                for metric_name in ['Accuracy', 'Precision', 'Recall', 'F1-score']:
+                for metric_name in [f'Accuracy_{columna}', f'Precision_{columna}', f'Recall_{columna}', f'F1-score_{columna}']:
                     mlflow.log_metric(metric_name, row[metric_name])
                 
-                report_text = row['Report']
-                mlflow.log_text(report_text, f"classification_report_{nombre_modelo}_columna.txt")
+                report_text = row[f'Report_{columna}']
+                mlflow.log_text(report_text, f"classification_report_{nombre_modelo}_{columna}.txt")
                 
-                # Record the ROC curve as an image
-                mlflow.log_artifact(os.path.join(plots_path,f"roc_curve-{nombre_modelo}_columna.png"))
+                # Record the ROC curve as an image  
+                mlflow.log_artifact(os.path.join(plots_path,f"roc_curve-{nombre_modelo}-{columna}.png"))
 
                 # # Record the confusion matrix as an image
-                mlflow.log_artifact(os.path.join(plots_path,f"confusion_matrix-{nombre_modelo}_columna.png"))
+                mlflow.log_artifact(os.path.join(plots_path,f"confusion_matrix-{nombre_modelo}-{columna}.png"))
                 
                 # Record the model
-                mlflow.sklearn.log_model(nombre_modelo, f"{nombre_modelo}_model_columna")
+                mlflow.sklearn.log_model(nombre_modelo, f"{nombre_modelo}_model")
+        # Guardamos resultados
+        resultados_por_columna[columna] = (df_resultados, plots_path)
 
 # Main Execution Block: Code that runs when the script is executed directly
 if __name__ == '__main__':

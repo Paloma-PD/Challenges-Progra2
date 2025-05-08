@@ -16,7 +16,7 @@ if not os.path.exists(plots_path):
     # If it doesn't exist, it will create it
     os.makedirs(plots_path)
 # Definimos la función para trabajar NLP
-def nlp_process(df_text):
+def nlp_process(df_text, columna):
     ## MODELO LDA
     documents = df_text['lem'].dropna().astype(str).tolist()
     # Como ya no hay que quitar stopwords, simplemente tokenizamos (split)
@@ -80,8 +80,8 @@ def nlp_process(df_text):
         plt.figure(figsize=(8, 6))
         plt.imshow(WordCloud(background_color='white').fit_words(dict(lda_model.show_topic(i, 30))))
         plt.axis('off')
-        plt.title(f'Topic {i}')
-        plt.savefig(os.path.join(plots_path,f'word_cloud_topic{i}.png'))
+        plt.title(f'Topic {i} - {columna}')
+        plt.savefig(os.path.join(plots_path,f'word_cloud_topic{i}_{columna}.png'))
         plt.close()
 
 # Definimos la función para trabajar NLP
@@ -105,11 +105,11 @@ def sentimental_analysis(df_text, columna='pros'):
     plt.xticks(rotation = 360)
     plt.yticks()
     plt.ylabel('Frequency')
-    plt.title('Sentiment Analysis')
+    plt.title(f'Sentiment Analysis - {columna}')
     # annotate
     ax.bar_label(ax.containers[0], label_type="edge")
     # pad the spacing between the number and the edge of the figure
     ax.margins(y=0.1)
     # Guardamos el plot
-    plt.savefig(os.path.join(plots_path,'Sentiment_analysis.png'))
+    plt.savefig(os.path.join(plots_path,f'Sentiment_analysis_{columna}.png'))
     plt.close()
